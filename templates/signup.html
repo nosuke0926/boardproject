@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a id="skippy" class="sr-only sr-only-focusable" href="#content">
+    <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+    </div>
+</a>
+
+<form class="form-signin" method="POST">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 font-weight-normal">サインアップする</h1>
+    {% if error %}
+
+    {{ error }}
+    {% endif %}
+    <label for="inputEmail" class="sr-only">ユーザー名</label>
+    <input type="text" id="inputEmail" class="form-control" name="username" placeholder="ユーザー名" required autofocus>
+    <label for="inputPassword" class="sr-only">パスワード</label>
+    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="パスワード" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">サインイン</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+</form>
+{% endblock content %}
